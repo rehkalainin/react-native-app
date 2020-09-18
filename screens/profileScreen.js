@@ -1,10 +1,19 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import Card from "../components/uikit/Card";
+import {useSelector, useDispatch} from "react-redux"
+import {getUserById} from "../redux/selectors/userPageSelectors";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({route}) => {
+    const {userId} = route.params;
+    const user = useSelector(getUserById(userId))
+
     return (
         <View style={styles.container}>
-            <Text>Профиль</Text>
+            {user && <Image
+                source={{uri: user.user.profile_image.large}}
+                style={{width: 300, height: 300}}
+            />}
         </View>
     );
 }
