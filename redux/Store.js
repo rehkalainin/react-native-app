@@ -1,8 +1,6 @@
 import React from "react"
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 
-import thunk from 'redux-thunk'
-
 
 class Store {
     store
@@ -13,7 +11,7 @@ class Store {
     }
 
     init() {
-        this.store = createStore(combineReducers(this.reducers), applyMiddleware(thunk))
+        this.store = createStore(combineReducers(this.reducers), applyMiddleware(...this.middlewares))
         return this.store
     }
 

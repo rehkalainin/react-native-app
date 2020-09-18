@@ -1,7 +1,7 @@
 import Store from './Store'
 import usersPageReducer from "./redusers/userPageReducer";
 import thunk from 'redux-thunk'
-import logger from 'redux-logger'
+
 
 const reducers = {
     usersPage: usersPageReducer,

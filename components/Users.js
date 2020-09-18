@@ -18,12 +18,12 @@ const Users = () => {
 
     return (
         <View>
-
-            {users.map(user => <Card key={user.id}
-                                     title={user.user.name}
-                                     imageUri={user.user.profile_image.medium}
-                                     description={user.alt_description}
-                                     id={user.id}/>)}
+            {isLoading ? <Preloader/>
+                : users.map(user => <Card key={user.id}
+                                          title={user.user.name}
+                                          imageUri={user.user.profile_image.medium}
+                                          description={user.alt_description}
+                                          id={user.id}/>)}
         </View>
     )
 }
